@@ -1,0 +1,108 @@
+
+(rules PCB gerb
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (eu.mihosoft.freerouting.autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 7727)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.1)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.9)
+    )
+  )
+  (rule
+    (width 500.0)
+    (clear 250.2)
+    (clear 250.0 (type smd_to_turn_gap))
+    (clear 62.6 (type smd_smd))
+    (clear 150.2 (type "pcbway 0.3"_"pcbway 0.3"))
+  )
+  (padstack "Via[0-1]_400:300_um"
+    (shape
+      (circle F.Cu 400.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 400.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_400:300_um" "Via[0-1]_400:300_um" default
+  )
+  (via 
+    "Via[0-1]_400:300_um-kicad_default" "Via[0-1]_400:300_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_400:300_um-pcbway 0.3" "Via[0-1]_400:300_um" "pcbway 0.3"
+  )
+  (via_rule
+    default "Via[0-1]_400:300_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_400:300_um-kicad_default"
+  )
+  (via_rule
+    "pcbway 0.3" "Via[0-1]_400:300_um-pcbway 0.3"
+  )
+  (class default
+    GND +5V "Net-(C3-Pad1)" RST "Net-(C5-Pad1)" "Net-(C6-Pad1)" "Net-(C10-Pad1)" "Net-(C10-Pad2)"
+    "Net-(C11-Pad1)" "Net-(C11-Pad2)" "Net-(C12-Pad2)" "Net-(C13-Pad1)" "Net-(D2-Pad1)" "Net-(D2-Pad2)" PD3 "Net-(D4-Pad1)"
+    PB0 "Net-(D5-Pad2)" "Net-(D6-Pad1)" "Net-(D6-Pad2)" "Net-(D7-Pad2)" "Net-(D8-Pad1)" "Net-(D8-Pad2)" "Net-(D10-Pad1)"
+    "Net-(D10-Pad2)" CSK MISO MOSI SCL SDA RTS "Net-(J4-Pad2)"
+    "Net-(J4-Pad3)" TX RX "unconnected-(J5-Pad1)" "unconnected-(J5-Pad2)" SS "Net-(J7-Pad3)" "Net-(J7-Pad4)"
+    "Net-(J7-Pad5)" "Net-(J7-Pad6)" "Net-(J7-Pad7)" "Net-(J7-Pad8)" "Net-(J7-Pad9)" "Net-(J7-Pad10)" "Net-(J7-Pad11)" "Net-(J7-Pad12)"
+    "Net-(J7-Pad13)" "Net-(J7-Pad14)" "Net-(J7-Pad15)" "Net-(J7-Pad16)" "Net-(J7-Pad17)" "Net-(J7-Pad18)" "unconnected-(J8-Pad1)" "unconnected-(J8-Pad4)"
+    "unconnected-(J8-Pad7)" "unconnected-(J8-Pad8)" "unconnected-(J8-Pad9)" M1 "Net-(JP2-Pad2)" "Net-(Q1-Pad2)" "Net-(Q1-Pad3)" "Net-(Q2-Pad2)"
+    "Net-(Q2-Pad3)" A1 A2 A3 A4 A5 A6 A7
+    NMI "Net-(R10-Pad1)" A8 A9 A10 A11 A12 A13
+    A14 A15 IORQ HALT PCB6 PD7 "Net-(R26-Pad2)" BUSACK
+    "Net-(R30-Pad1)" USR "Net-(R37-Pad1)" D4 D3 D5 D6 D2
+    D7 D0 D1 INT MREQ RD WR WAIT
+    BUSREQ "unconnected-(U1-Pad28)" A0 PD4 "Net-(U2-Pad3)" PB2 "unconnected-(U3-Pad32)" "unconnected-(U4-Pad1)"
+    "unconnected-(U5-Pad11)" "unconnected-(U5-Pad14)" "unconnected-(U5-Pad19)" "unconnected-(U5-Pad20)" "unconnected-(U6-Pad7)" "unconnected-(U6-Pad10)" "Net-(U6-Pad9)" "Net-(U6-Pad8)"
+    "Net-(U6-Pad14)" "Net-(U6-Pad13)" "Net-(J9-Pad1)"
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "pcbway 0.3"
+    (clearance_class "pcbway 0.3")
+    (via_rule pcbway 0.3)
+    (rule
+      (width 500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
